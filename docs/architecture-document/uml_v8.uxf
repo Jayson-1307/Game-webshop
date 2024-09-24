@@ -1,0 +1,587 @@
+<diagram program="umletino" version="15.1"><zoom_level>1</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>158</x><y>239</y><w>27</w><h>16</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+OrderItem
+--
++id: number
++name: string
++description: string
++price: number
++imageURLs: string[]
++category: Category
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>145</x><y>271</y><w>22</w><h>7</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Service
+--
+-period: Period</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>172</x><y>270</y><w>29</w><h>9</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Product
+--
++maxPerCustomer: number
++inStock: number
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>290</y><w>26</w><h>13</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Period
+--
+YEAR = "year"
+MONTH = "month"
+WEEKLY = "weekly"
+SINGLEPAYMENT = "single-payment"</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>204</x><y>269</y><w>27</w><h>11</h></coordinates><panel_attributes>ShoppingCart
+--
++add(item: ShoppingCartItem): boolean
++remove(id): boolean
++count(): number
++get(id: number): ShoppingCart</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>251</y><w>27</w><h>12</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Category
+--
++id: number
++name: string
++description: string
++subCategory: Category</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>214</x><y>239</y><w>27</w><h>9</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+ShoppingCartItem
+--
++orderItem: OrderItem
++amount: number</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>226</x><y>247</y><w>5</w><h>24</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>237</x><y>310</y><w>5</w><h>15</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>269</y><w>11</w><h>23</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;80;10;80;210</additional_attributes></element><element><id>Relation</id><coordinates><x>184</x><y>240</y><w>32</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0	</panel_attributes><additional_attributes>10;10;300;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>321</y><w>44</w><h>34</h></coordinates><panel_attributes>ProductController
+--
+-isDatabaseActive: boolean
+-products: Product[]
+-services: Service[]
+-categories: Category[]
+--
++constructor()
++countShopItems(): number
++countServices(): number
++countProducts(): number
++countCategories(): number
++getShopItemById(number id): ShopItem
++getCategoryById(number id): Category
++getProductById(number id): Product
++getShopItemsOrderdByCategory(category: Category): ShopItem[]
++getShopItemsOrderdByPrice(desc: boolean): ShopItem[]
++getProductsOrderdByCategory(category: Category): Product[]
++getProductsOrderdByPrice(desc: boolean): Product[]
++getServicesOrderdByCategory(category: Category): Service[]
++getServicesOrderdByPrice(desc: boolean): Service[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>242</x><y>269</y><w>21</w><h>10</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+AuthorizationLevel
+--
+USER = "user"
+EMPLOYEE = "employee"
+ADMIN = "admin"</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>274</x><y>261</y><w>24</w><h>9</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+CartItem
+--
++id: number
++amount: number</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>307</x><y>242</y><w>24</w><h>11</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Order
+--
++id: number
++products: OrderItem[]
++status: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>274</x><y>242</y><w>24</w><h>13</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+OrderItem
+--
++id: number
++name: string
++description?: string
++price: number
++imageURLs?: string[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>275</y><w>28</w><h>22</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+UserData
+--
++id: number
++email: string
++password: string
++name: string
++firstName?: string
++lastName?: string
++addresses?: Address[]
++orders?: Order[]
++authorizationLevel?: AuthorizationLevel
++cart?: CartItem[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>188</x><y>285</y><w>24</w><h>14</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Address
+--
++id: number
++street: string
++city: string
++zip: string
++country: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>243</y><w>12</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0	</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>313</x><y>258</y><w>9</w><h>19</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>70;10;10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>309</x><y>252</y><w>5</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>262</y><w>10</w><h>15</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;70;10;70;130</additional_attributes></element><element><id>Relation</id><coordinates><x>173</x><y>278</y><w>18</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>140;10;140;60;10;60;10;430</additional_attributes></element><element><id>Relation</id><coordinates><x>184</x><y>245</y><w>25</w><h>8</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>210;60;210;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>224</x><y>290</y><w>27</w><h>21</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+UserData
+--
++id: number
++email: string
++password: string
++name: string
++firstName?: string
++lastName?: string
++addresses?: Address[]
++orders?: Order[]
++authorizationLevel?: AuthorizationLevel
++cart?: ShoppingCart</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>276</x><y>274</y><w>21</w><h>11</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+AuthorizationLevel
+--
+USER = "user"
+EMPLOYEE = "employee"
+ADMIN = "admin"</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>257</y><w>24</w><h>14</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Address
+--
++id: number
++street: string
++city: string
++zip: string
++country: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>211</x><y>286</y><w>22</w><h>6</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;190;10;190;40</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>268</x><y>233</y><w>99</w><h>110</h></coordinates><panel_attributes>Current code version 1.0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>137</x><y>233</y><w>129</w><h>130</h></coordinates><panel_attributes>Future code version 2.0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>307</y><w>24</w><h>13</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+authenticationMiddleware
+--
++handleTokenBasedAuthentication(
+   req: Request,
+   res: Response,
+   next: NextFunction
+) : NextFunction | void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>338</x><y>313</y><w>13</w><h>7</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>110;10;110;50;10;50</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>270</x><y>301</y><w>95</w><h>39</h></coordinates><panel_attributes>Backend</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>341</x><y>307</y><w>18</w><h>7</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Request
+--
+user?: UserData</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>313</x><y>296</y><w>39</w><h>13</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;10;50;360;50;360;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>327</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+routes.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>286</x><y>284</y><w>16</w><h>9</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;10;60;140;60</additional_attributes></element><element><id>Relation</id><coordinates><x>323</x><y>319</y><w>3</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>341</x><y>327</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+app.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>332</x><y>332</y><w>11</w><h>3</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>270</x><y>237</y><w>76</w><h>62</h></coordinates><panel_attributes>Shared</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>277</x><y>311</y><w>28</w><h>6</h></coordinates><panel_attributes>OrderItemController
+--
++getAll(req: Request, res: Response): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>272</x><y>320</y><w>37</w><h>12</h></coordinates><panel_attributes>UserController
+--
++register(req: Request, res: Response): void
++login(req: Request, res: Response): void
++logout(req: Request, res: Response): void
++hello(req: Request, res: Response): void
++addOrderItemToCart(req: Request, res: Response): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>304</x><y>311</y><w>13</w><h>21</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=0</panel_attributes><additional_attributes>10;10;80;10;80;180;110;180</additional_attributes></element><element><id>Relation</id><coordinates><x>308</x><y>320</y><w>6</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;40;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>203</x><y>323</y><w>24</w><h>13</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+authenticationMiddleware
+--
++handleTokenBasedAuthentication(
+   req: Request,
+   res: Response,
+   next: NextFunction
+) : NextFunction | void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>203</x><y>343</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+routes.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>229</x><y>343</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+app.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>211</x><y>335</y><w>3</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>148</x><y>314</y><w>103</w><h>45</h></coordinates><panel_attributes>Backend</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>226</x><y>329</y><w>13</w><h>7</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>110;10;110;50;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>229</x><y>323</y><w>18</w><h>7</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Request
+--
+user?: UserData</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>195</x><y>321</y><w>10</w><h>31</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=0</panel_attributes><additional_attributes>10;10;50;10;50;280;80;280</additional_attributes></element><element><id>Relation</id><coordinates><x>155</x><y>277</y><w>21</w><h>9</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;10;10;70;190;70</additional_attributes></element><element><id>Relation</id><coordinates><x>155</x><y>254</y><w>19</w><h>19</h></coordinates><panel_attributes>lt=&lt;&lt;-
+</panel_attributes><additional_attributes>170;10;170;110;10;110;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>171</x><y>263</y><w>17</w><h>9</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;150;20;150;70</additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>278</y><w>5</w><h>14</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>148</x><y>277</y><w>4</w><h>15</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=0</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>188</x><y>301</y><w>24</w><h>11</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Order
+--
++id: number
++products: OrderItem[]
++status: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>211</x><y>302</y><w>15</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>240</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>180;10;10;10;10;670;480;670</additional_attributes></element><element><id>Text</id><coordinates><x>235</x><y>251</y><w>25</w><h>14</h></coordinates><panel_attributes>*Disclaimer*
+This is a conceptual design and may contain errors. 
+
+However, please first discuss changes with your teachers before you apply them in your code to prevent loss of work!
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>253</x><y>373</y><w>134</w><h>84</h></coordinates><panel_attributes>Shared</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>279</x><y>382</y><w>27</w><h>21</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+OrderItem
+--
++productId: number
++merchandiseId?: number
++merchandiseType?: string
++gameId?: number
++name: string
++description: string
++price: number
++imageURLs: string[]
++category: Category
++discount?: number
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>261</x><y>383</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>180;10;10;10;10;670;480;670</additional_attributes></element><element><id>Relation</id><coordinates><x>305</x><y>383</y><w>32</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0	</panel_attributes><additional_attributes>10;10;300;10</additional_attributes></element><element><id>Relation</id><coordinates><x>305</x><y>388</y><w>25</w><h>8</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>210;60;210;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>335</x><y>382</y><w>25</w><h>9</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+ShoppingCartItem
+--
++orderItem: OrderItem
++amount: number</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>313</x><y>394</y><w>27</w><h>12</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Category
+--
++id: number
++name: string
++description: string
++subCategory: Category</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>276</x><y>402</y><w>19</w><h>14</h></coordinates><panel_attributes>lt=&lt;&lt;-
+</panel_attributes><additional_attributes>170;10;170;60;10;60;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>292</x><y>406</y><w>17</w><h>9</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;150;20;150;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>293</x><y>413</y><w>29</w><h>9</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Product
+--
++maxPerCustomer: number
++inStock: number
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>266</x><y>414</y><w>22</w><h>7</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Service
+--
+-period: Period</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>325</x><y>412</y><w>27</w><h>11</h></coordinates><panel_attributes>ShoppingCart
+--
++add(item: ShoppingCartItem): boolean
++remove(id): boolean
++count(): number
++get(id: number): ShoppingCart</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>363</x><y>412</y><w>21</w><h>10</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+AuthorizationLevel
+--
+USER = "user"
+EMPLOYEE = "employee"
+ADMIN = "admin"</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>412</y><w>11</w><h>23</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;80;10;80;210</additional_attributes></element><element><id>Relation</id><coordinates><x>467</x><y>384</y><w>5</w><h>14</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+m2=0</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>345</x><y>433</y><w>27</w><h>21</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+UserData
+--
++id: number
++email: string
++password: string
++name: string
++firstName?: string
++lastName?: string
++addresses?: Address[]
++orders?: Order[]
++authorizationLevel: AuthorizationLevel
++cart?: ShoppingCart</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>362</x><y>453</y><w>5</w><h>20</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>358</x><y>471</y><w>18</w><h>7</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Request
+--
+user?: UserData</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>332</x><y>471</y><w>24</w><h>13</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+authenticationMiddleware
+--
++handleTokenBasedAuthentication(
+   req: Request,
+   res: Response,
+   next: NextFunction
+) : NextFunction | void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>358</x><y>491</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+app.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>332</x><y>491</y><w>18</w><h>10</h></coordinates><panel_attributes>&lt;&lt;module&gt;&gt;
+routes.ts
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>483</y><w>3</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>349</x><y>496</y><w>11</w><h>3</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>316</x><y>469</y><w>18</w><h>31</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=0</panel_attributes><additional_attributes>10;10;50;10;50;280;160;280</additional_attributes></element><element><id>UMLClass</id><coordinates><x>273</x><y>469</y><w>44</w><h>31</h></coordinates><panel_attributes>ProductController
+--
+-isDatabaseActive: boolean
+-products: Product[]
+-services: Service[]
+-categories: Category[]
+--
++constructor()
++countShopItems(): number
++countServices(): number
++countProducts(): number
++countCategories(): number
++getShopItemById(number id): ShopItem
++getCategoryById(number id): Category
++getProductById(number id): Product
++getShopItemsOrderdByCategory(category: Category): ShopItem[]
++getShopItemsOrderdByPrice(desc: boolean): ShopItem[]
++getProductsOrderdByCategory(category: Category): Product[]
++getProductsOrderdByPrice(desc: boolean): Product[]
++getServicesOrderdByCategory(category: Category): Service[]
++getServicesOrderdByPrice(desc: boolean): Service[]</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>294</x><y>421</y><w>18</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>140;10;140;60;10;60;10;480</additional_attributes></element><element><id>Relation</id><coordinates><x>276</x><y>420</y><w>21</w><h>9</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;10;10;70;190;70</additional_attributes></element><element><id>Relation</id><coordinates><x>269</x><y>420</y><w>4</w><h>15</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=0</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>265</x><y>433</y><w>26</w><h>13</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Period
+--
+YEAR = "year"
+MONTH = "month"
+WEEKLY = "weekly"
+SINGLEPAYMENT = "single-payment"</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>332</x><y>429</y><w>22</w><h>6</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;190;10;190;40</additional_attributes></element><element><id>Relation</id><coordinates><x>332</x><y>445</y><w>15</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>309</x><y>428</y><w>24</w><h>14</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Address
+--
++id: number
++street: string
++city: string
++zip: string
++country: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>309</x><y>444</y><w>24</w><h>11</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+Order
+--
++id: number
++products: OrderItem[]
++status: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>253</x><y>464</y><w>134</w><h>69</h></coordinates><panel_attributes>Backend</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>274</x><y>519</y><w>38</w><h>13</h></coordinates><panel_attributes>UserController
+--
++register(req: Request, res: Response): void
++login(req: Request, res: Response): void
++logout(req: Request, res: Response): void
++hello(req: Request, res: Response): void
++addOrderItemToCart(req: Request, res: Response): void
++verifyEmail (email: string): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>162</x><y>377</y><w>84</w><h>140</h></coordinates><panel_attributes>Service</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>380</y><w>43</w><h>24</h></coordinates><panel_attributes>Root
+--
++styles
+-_currentPage: RouterPage
+-_isLoggedIn: boolean
+-_orderItems: OrderItem[]
++_cartItemsCount: number
+-_userService: UserService
+-_orderItemService: OrderItemService
+-_name: string
+-_currentPageClass: CurrentPageClass 
+--
++render(): TemplateResult
+-switchPageClass(_currentPage): void
+-renderCurrentPageElement(_currentPageClass): TemplateResult</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>403</y><w>7</w><h>8</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>50;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>403</y><w>74</w><h>98</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>720;960;720;920;10;920;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>407</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;20;50;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>419</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;20;50;20</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>419</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>50;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>431</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>50;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>431</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;20;50;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>444</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;20;50;20</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>444</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>50;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>458</y><w>7</w><h>4</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>50;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>45</x><y>469</y><w>25</w><h>7</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;50;10;20;230;20</additional_attributes></element><element><id>Relation</id><coordinates><x>67</x><y>469</y><w>47</w><h>7</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>450;50;450;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>83</x><y>470</y><w>3</w><h>6</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>99</x><y>474</y><w>23</w><h>12</h></coordinates><panel_attributes>ProductDetailPage
+--
+-product: Product
+--
++renderProductDetail(): TemplateResult
++renderProduct(): TemplateResult
++renderDiscount(): TemplateResult
+group=group-6</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>28</x><y>474</y><w>36</w><h>14</h></coordinates><panel_attributes>ProductPage
+--
+-products: Product[ ]
+-currentFilter: string
+-type: string
+--
++renderProduct(): TemplateResult
++renderProducts(products: Product[ ]): TemplateResult
++renderDiscount(): TemplateResult
+group=group-6</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>474</y><w>25</w><h>7</h></coordinates><panel_attributes>Offers
+--
+-Offers: Product[ ]
+--
++renderOffers(): TemplateResult
+group=group-6</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>455</y><w>23</w><h>11</h></coordinates><panel_attributes>Cookies
+--
++renderCookies(): TemplateResult
++checkCookies(): void
++updateCookieSettings(): void
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>41</x><y>444</y><w>23</w><h>5</h></coordinates><panel_attributes>PrivacyPolicy
+--
++renderPrivacyPolicy(): TemplateResult
+group=group-7</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>444</y><w>24</w><h>5</h></coordinates><panel_attributes>ReturnPolicy
+--
++renderReturnPolicy(): TemplateResult
+group=group-7</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>41</x><y>429</y><w>23</w><h>9</h></coordinates><panel_attributes>Profile
+--
++renderProfile(): TemplateResult
++getUserProfileData(); UserData
+group=group-8</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>429</y><w>24</w><h>9</h></coordinates><panel_attributes>EditProfile
+--
++renderEditProfile(): TemplateResult
++checkCookie(): UserData
++updateProfile(): boolean
+
+group=group-8</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>416</y><w>24</w><h>10</h></coordinates><panel_attributes>Login
+--
+-error?: boolean
+--
++renderLoginPage(): TemplateResult
++submitLogin(): void
++showLoginError(): TemplateResult
+
+group=group-9</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>416</y><w>26</w><h>10</h></coordinates><panel_attributes>Register
+--
+-error?: boolean
+--
++renderRegisterPage(): TemplateResult
++submitRegister(): void
++renderError(): TemplateResult
+group=group-9</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>406</y><w>21</w><h>7</h></coordinates><panel_attributes>Footer
+--
++renderFooter(): TemplateResult
+group=group-10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>43</x><y>406</y><w>21</w><h>7</h></coordinates><panel_attributes>Header
+--
++renderHeader(): TemplateResult
+group=group-10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>39</x><y>499</y><w>26</w><h>14</h></coordinates><panel_attributes>PaymentMethode
+--
+-_userService: UserService
+-_Order: Order
+--
++renderOrderStep2(): TemplateResult
++renderPaymentSelection(): TemplateResult
++updateOrderPaymentMethode(): boolean
++renderError(): void
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>499</y><w>30</w><h>27</h></coordinates><panel_attributes>DeliveryAddresses
+--
+-_Order: Order
+-_userService: UserService
+-_invoiceAddress: Address
+-_deliveryAdress: Address
+-_otherDeliveryAddress: boolean
+-_orderItemService: OrderItemService
+--
++getAddresses(): Address[ ]
++renderOrderStep3(): TemplateResult
++renderOrder(): TemplateResult
++renderInvoiceAddress(): TemplateResult
++renderDeliveryAddress(): TemplateResult
++updateInvoiceAddress(_invoiceAddress): boolean
++updateDeliveryAddress(_deliveryAdress): boolean
++renderError(): void
+
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>102</x><y>499</y><w>25</w><h>19</h></coordinates><panel_attributes>ConfirmationCheck
+--
+-_Order: Order
+-_userService: UserService
+-_orderItemService: OrderItemService
+-_productService: ProductService
+--
++renderOrder(): TemplateResult
++renderAddresses(): TemplateResult
++renderOrderItems(): TemplateResult
++renderPrices(): TemplateResult
++renderError(): TemplateResult
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>131</x><y>499</y><w>23</w><h>16</h></coordinates><panel_attributes>OrderReceived
+--
+-_Order: Order
+-_userService: UserService
+-_orderItemService: OrderItemService
+--
++renderOrder(): TemplateResult
++renderEmail(): TemplateResult
++renderAddresses(): TemplateResult
++renderOrderItems(): TemplateResult
+
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>499</y><w>25</w><h>19</h></coordinates><panel_attributes>ShoppingCart
+--
+-_userService: UserService
+-_Order: Order
+-_ShoppingCart: ShoppingCart
+-_orderItemService: OrderItemService
+--
++renderOrderStep1(): TemplateResult
++renderProducts(): TemplateResult
++createOrder(): boolean
++updateCurrentOrder(): boolean
++renderError(): void
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>493</y><w>50</w><h>8</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;60;10;20;480;20</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>3</x><y>377</y><w>156</w><h>163</h></coordinates><panel_attributes>front-end components</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>114</x><y>494</y><w>3</w><h>7</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>84</x><y>494</y><w>3</w><h>7</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>51</x><y>494</y><w>3</w><h>7</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>215</x><y>432</y><w>27</w><h>10</h></coordinates><panel_attributes>TokenService
+--
++setToken
++getToken
++removeToken</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>179</x><y>423</y><w>27</w><h>35</h></coordinates><panel_attributes>UserService
+--
++_tokenService: TokenService
++_shoppingCart: ShoppingCart
+--
++login(email, password): boolean
++register(
+	username, 
+	email, 
+	password, 
+	repeatPassword, 
+	birthDate, 
+	street, 
+	houseNumber, 
+	city, 
+	zipcode
+	country
+	): boolean
++getProfileData(profileUserId): UserData
++getUserData(currentUserId): UserData
++sendRegistrationEmail() boolean
++sendOrderEmail() boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>215</x><y>464</y><w>27</w><h>19</h></coordinates><panel_attributes>ShoppingCart
+--
++ShoppingCartItems: ShoppingCartItem[ ]
++_tokenService: TokenService
+--
++getItems(id: number): ShoppingCart
++add(item: ShoppingCartItem): boolean
++lower(item: ShoppingCartItem): boolean
++remove(id): boolean
++quantity(): number
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>179</x><y>390</y><w>27</w><h>31</h></coordinates><panel_attributes>&lt;&lt;type&gt;&gt;
+CurrentPageClass
+--
++currentPageClass: 
+	Header|
+	Footer|
+	Login|
+	Register|
+	Profile|
+	EditProfile|
+	PrivacyPolicy|
+	ReturnPolicy|
+	Cookies|
+	ProductPage|
+	Offers|
+	ProductDetailPage|
+	ShoppingCart|
+	PaymentMethode|
+	DeliveryAddresses|
+
+
+layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>179</x><y>464</y><w>27</w><h>19</h></coordinates><panel_attributes>ProductService
+--
++_shoppingCart: ShoppingCart
+--
++getProducts(currentFilter, type): Product[ ]
++getProduct(productId): Product
++adjustStock(productId: boolean
++discountCalculation(productId, discount): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>373</y><w>249</w><h>178</h></coordinates><panel_attributes>Web</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>459</y><w>21</w><h>14</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>190;120;190;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>205</x><y>475</y><w>12</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>45</x><y>490</y><w>24</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>220;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>45</x><y>487</y><w>3</w><h>6</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>68</x><y>490</y><w>99</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>970;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>83</x><y>480</y><w>3</w><h>13</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>111</x><y>485</y><w>3</w><h>8</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>441</y><w>3</w><h>25</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>205</x><y>433</y><w>12</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>393</y><w>82</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>800;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>169</x><y>393</y><w>12</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>169</x><y>393</y><w>12</w><h>45</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>100;430;10;430;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>165</x><y>445</y><w>16</w><h>89</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>140;10;10;10;10;870</additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>517</y><w>3</w><h>16</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>530</y><w>148</w><h>4</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>1460;20;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>51</x><y>512</y><w>3</w><h>21</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>83</x><y>525</y><w>3</w><h>8</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>114</x><y>517</y><w>3</w><h>16</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>138</x><y>514</y><w>3</w><h>20</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>166</x><y>490</y><w>19</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>182</x><y>482</y><w>3</w><h>11</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>274</x><y>505</y><w>38</w><h>12</h></coordinates><panel_attributes>OrderItemService
+--
+Order: order
+--
+-validatePayment(data: string): void
+-checkDiscountCode(discountCode: string): void
++sendEmail(billData: string): void
++adjustStockAmount(items: string[]): Promise&lt;void&gt;
+layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>238</x><y>482</y><w>38</w><h>35</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>360;330;10;330;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>205</x><y>447</y><w>7</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>209</x><y>447</y><w>3</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;280</additional_attributes></element><element><id>Relation</id><coordinates><x>209</x><y>476</y><w>3</w><h>51</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;490</additional_attributes></element><element><id>Relation</id><coordinates><x>209</x><y>524</y><w>67</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>650;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>311</x><y>443</y><w>72</w><h>84</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>610;10;700;10;700;820;10;820</additional_attributes></element><element><id>Relation</id><coordinates><x>238</x><y>441</y><w>3</w><h>21</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>238</x><y>459</y><w>58</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;560;10</additional_attributes></element><element><id>Relation</id><coordinates><x>295</x><y>459</y><w>30</w><h>3</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>280;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>311</x><y>454</y><w>17</w><h>62</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>130;10;130;590;10;590</additional_attributes></element><element><id>Relation</id><coordinates><x>345</x><y>390</y><w>5</w><h>24</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n
+m2=0</panel_attributes><additional_attributes>10;10;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>368</x><y>421</y><w>3</w><h>14</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>355</x><y>477</y><w>14</w><h>6</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;10;120;40;10;40</additional_attributes></element></diagram>
