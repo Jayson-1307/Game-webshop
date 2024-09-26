@@ -4,7 +4,8 @@
 In Blok 4 van ons eerste jaar moesten we een webshop maken om de games die gemaakt zijn in blok 3, en gerelateerde merchandise in te verkopen. Dit moesten we doen in groepjes van 4.Hiervoor hebben wij TypeScript (Lit voor single page application) en HTML/CSS.  
 
 ## Indeling
-in de src/api staat de Typescript code en de src/web staan (bijna) alle bestanden waar aan zijn gewerkt. src/api bevat meer de backend, en src/web bevat de frontend.
+in de src/api staat de Typescript code en de src/web staan (bijna) alle bestanden waar aan zijn gewerkt. src/api bevat meer de backend, en src/web bevat de frontend (componenten van Lit staan in src/web/src/components).
+
 ## Hoe installeer ik het?
 - Open de *root* van je project als map in VS Code.
 - Installer de NPM packages (bijvoorbeeld met `npm install`) en voer daarna het `dev`-script uit (bijvoorbeeld met `npm run dev`).
