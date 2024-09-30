@@ -40,7 +40,7 @@ npm install
 
 ### Running the project
 #### If u want to run both the Front- and Backend:
-run this command in the terminal: 
+Run this command in the terminal:   
 ```
 npm run dev
 ```
@@ -63,7 +63,7 @@ Open 'localhost:3000' in your browser, and the webshop should be shown!
 
 ## Contact
 If you have any questions or saw something interesting, feel free to contact me!    
-u can send me an email: jvanolffen@outlook.com or send me a direct message on [LinkedIn](https://www.linkedin.com/in/jayson-van-olffen/)! 
+U can send me an email: jvanolffen@outlook.com or send me a direct message on [LinkedIn](https://www.linkedin.com/in/jayson-van-olffen/)! 
 
 
 
