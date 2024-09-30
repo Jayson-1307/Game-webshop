@@ -63,7 +63,7 @@ Open 'localhost:3000' in your browser, and the webshop should be shown!
 
 ## Contact
 If you have any questions or saw something interesting, feel free to contact me!    
-u can send me an [email](jvanolffen@outlook.com) or send me a direct message on [LinkedIn](https://www.linkedin.com/in/jayson-van-olffen/)! 
+u can send me an email: jvanolffen@outlook.com or send me a direct message on [LinkedIn](https://www.linkedin.com/in/jayson-van-olffen/)! 
 
 
 
